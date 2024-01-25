@@ -46,10 +46,5 @@ If you want to contribute to this project, follow these steps:
 
 ![Captura 1](static/img/Captura1.png)
 
-## License
-
-This project is distributed under the MIT License. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
-
----
 
 
