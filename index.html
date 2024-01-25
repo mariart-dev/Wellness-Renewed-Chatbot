@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Renewed</title>
+    <!-- Bootstrap and CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'%3E%3Cpath d='M183.1 235.3c33.7 20.7 62.9 48.1 85.8 80.5c7 9.9 13.4 20.3 19.1 31c5.7-10.8 12.1-21.1 19.1-31c22.9-32.4 52.1-59.8 85.8-80.5C437.6 207.8 490.1 192 546 192h9.9c11.1 0 20.1 9 20.1 20.1C576 360.1 456.1 480 308.1 480H288 267.9C119.9 480 0 360.1 0 212.1C0 201 9 192 20.1 192H30c55.9 0 108.4 15.8 153.1 43.3zM301.5 37.6c15.7 16.9 61.1 71.8 84.4 164.6c-38 21.6-71.4 50.8-97.9 85.6c-26.5-34.8-59.9-63.9-97.9-85.6c23.2-92.8 68.6-147.7 84.4-164.6C278 33.9 282.9 32 288 32s10 1.9 13.5 5.6z' fill='%230bb10e' /%3E%3C/svg%3E" type="image/svg+xml">
+
+
+</head>
+<body>         
+    
+    <!-- Chatbot -->
+    <div id="chat-bubble">
+       <i class="fas fa-comments"></i>
+    </div>
+    <div id="chat-container" class="chat-container" style="display: none;">
+       <button id="close-button"><i class="fas fa-times"></i></button>
+       <h1>Virtual<span class="green-text">Assistant</span></h1>
+       <div id="chat-body">
+           <!-- Chatbot and user messages -->
+       </div>
+       <div id="chat-input">
+           <input type="text" id="user-input" placeholder="Type your question...">
+           <button id="send-button">Send</button>
+       </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="disclaimerModal" class="modal fade" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="disclaimerModalLabel">Important Notice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This page has been created with a special focus on chatbot implementation.<br>The rest of the page is intentionally inactive.<br>The purpose of this demonstration is to showcase my skills in chatbot development and be part of my portfolio.<br>We invite you to interact with the chatbot and explore its capabilities.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Wellness <span class="green-text">Renewed</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container-fluid page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="image-container">
+                    <img src="static/img/Background.jpg" alt="Massage Image">
+
+                    <div class="overlay">
+                        <h2>Your Destination for Relaxation & Wellbeing</h2>
+                        <hr class="green-line">
+                        <p>Discover a unique massage experience that helps you relieve stress and enhance your overall well-being. At Wellness Renewed, we offer a wide range of relaxing and therapeutic massages, as well as rejuvenating spa treatments. Whether you seek relaxation or specific relief, we're here to take care of you.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-success btn-sm">Services</a>
+                        </div>
+                    </div>                    
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>  
+    
+    <!-- Choose Us -->
+    <section class="container-fluid why-choose-us">
+        <h3 class="text-center mb-4">Why Choose Us?</h3>
+        <div class="row justify-content-center">
+            <!-- Reason 1 -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <i class="fas fa-hand-rock card-icon text-primary mb-3"></i>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Experienced Therapists</h5>
+                        <p class="card-text">Our team of experienced therapists is dedicated to providing the best massage therapy tailored to your needs.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Reason 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <i class="fas fa-spa card-icon text-success mb-3"></i>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Relaxing Atmosphere</h5>
+                        <p class="card-text">We offer a peaceful and tranquil environment that enhances your relaxation and overall experience.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Reason 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <i class="fas fa-heart card-icon text-danger mb-3"></i>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Customized Treatments</h5>
+                        <p class="card-text">Each massage session is tailored to your specific needs and preferences for the best results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+    <!-- Services -->
+    <section class="container-fluid services-section">
+        <h3 class="text-center">Our Services</h3>
+        <div class="row">
+            <!-- Service 1 -->
+            <div class="col-md-3">
+                <div class="card mb-4 service-card">
+                    <img src="static/img/SwedishMassage.jpeg" class="card-img-top" alt="Service 1">
+    
+                    <div class="card-body">
+                        <h5 class="card-title">Swedish Massage</h5>
+                        <p class="card-text">Enjoy the ultimate relaxation with our Swedish massage. It helps reduce stress and improve circulation.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="col-md-3">
+                <div class="card mb-4 service-card">
+                    <img src="static/img/DeepTissueMassage.jpg" class="card-img-top" alt="Service 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Deep Tissue Massage</h5>
+                        <p class="card-text">Experience relief from muscle tension and chronic pain with our deep tissue massage.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 3 -->
+            <div class="col-md-3">
+                <div class="card mb-4 service-card">
+                    <img src="static/img/HotStoneMassage.jpg" class="card-img-top" alt="Service 3">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Stone Massage</h5>
+                        <p class="card-text">Indulge in the soothing warmth of hot stones, combined with massage techniques, for a truly relaxing experience.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 4 -->
+            <div class="col-md-3">
+                <div class="card mb-4 service-card">
+                    <img src="static/img/RelaxationAromatherapy.jpg" class="card-img-top" alt="Service 4">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Relaxation Aromatherapy</h5>
+                        <p class="card-text">Indulge in the blissful world of relaxation with our Aromatherapy Massage. Our expert therapists use essential oils to enhance your experience and promote tranquility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All Services -->
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-success view-all-services-button">Browse all treatments</a>
+        </div>
+        
+    </section>
+
+    <!-- Custom -->
+    <section class="container-fluid custom-section">
+        <div class="row justify-content-center align-items-center">
+            <!-- left -->
+            <div class="col-md-6">
+                <h2 class="section-title">Elevate Your Senses with Rejuvenating Massages</h2>
+            </div>
+            <!-- right -->
+            <div class="col-md-6">
+                <p class="section-text">
+                    Embark on a journey of bliss and relaxation at Wellness Renewed.<br>Our skilled therapists are dedicated to providing you with an unforgettable experience through a variety of massage treatments.<br>Indulge in the perfect escape from the hustle and bustle of daily life.
+                </p>
+            </div>
+        </div>
+    </section>  
+    
+    <!-- Testimonials -->
+    <section class="container-fluid testimonials-section">
+        <h3 class="text-center mb-4">What Our Clients Say</h3>
+        <div class="row justify-content-center">
+            <!-- Testimonial 1 -->
+            <div class="col-md-4">
+                <div class="card mb-4 testimonial-card">
+                    <div class="card-body">
+                        <div class="testimonial-author-img">
+                            <img src="static/img/Sarah.jpg" class="card-img-top" alt="Sarah's Photo">
+
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The massage I received at Wellness Renewed was exceptional. The therapist was highly skilled, and I left feeling completely relaxed and rejuvenated.</p>
+                            <div class="testimonial-stars">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                            <p class="testimonial-author">- Sarah M.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4 testimonial-card">
+                    <div class="card-body">
+                        <div class="testimonial-author-img">
+                            <img src="static/img/john.jpg" class="card-img-top" alt="John's Photo">
+
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">I've been a regular client at Wellness Renewed for months, and I couldn't be happier with their services. The therapists are friendly and professional.</p>
+                            <div class="testimonial-stars">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                            <p class="testimonial-author">- John D.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4 testimonial-card">
+                    <div class="card-body">
+                        <div class="testimonial-author-img">
+                            <img src="static/img/emily.jpg" class="card-img-top" alt="Emily's Photo">
+
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Wellness Renewed has become my go-to place for relaxation. Their customized treatments have made a significant difference in my well-being.</p>
+                            <div class="testimonial-stars">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                            <p class="testimonial-author">- Emily R.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  
+    
+    <!-- Footer -->
+    <footer class="container-fluid footer-section">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Wellness <span class="green-text">Renewed</span></h4>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="row">
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <!-- links -->
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <!-- links -->
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <!-- links -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- horizontal line -->
+            <hr style="background-color: white;">
+        </div>
+        <div class="row">            
+            <!-- Social icons -->
+            <div class="col-md-12 text-center">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>&copy; 2023 Dev.Eugenius. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/84092d3ce0.js" crossorigin="anonymous"></script>
+
+
+    <script>
+        function showModal() {
+            $('#disclaimerModal').modal('show');
+        }
+    
+        $(document).ready(function() {
+            $('a, button').click(function(event) {
+                if (!($(this).is('#close-button') || $(this).is('#send-button'))) {
+                    showModal();
+                }
+                event.preventDefault();
+            });
+        });
+    </script>
+    
+    <script>
+        const welcomeMessage = "Hello! I'm your virtual assistant. How can I assist you today?";
+    
+        document.getElementById("send-button").addEventListener("click", function () {
+            sendMessage();
+        });
+    
+        document.getElementById("user-input").addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                sendMessage();
+            }
+        });
+    
+        function appendMessage(message, className) {
+            const chatBody = document.getElementById("chat-body");
+            const messageBubble = document.createElement("div");
+            messageBubble.className = className;
+            messageBubble.textContent = message;
+            chatBody.appendChild(messageBubble);
+            scrollChatToBottom();
+        }
+    
+        function appendUserMessage(message) {
+            appendMessage(message, "user-bubble");
+        }
+    
+        function appendBotMessage(message) {
+            appendMessage(message, "bot-bubble");
+        }
+    
+        function getUserResponse(userMessage) {
+            fetch(`/get?user_message=${userMessage}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const botResponse = data.bot_response;
+                    appendBotMessage(botResponse);
+                    scrollChatToBottom();
+                });
+        }
+    
+        function sendMessage() {
+            const userMessage = document.getElementById("user-input").value;
+            if (userMessage.trim() !== "") {
+                appendUserMessage(userMessage);
+                getUserResponse(userMessage);
+                document.getElementById("user-input").value = "";
+            }
+        }
+    
+        function scrollChatToBottom() {
+            const chatBody = document.getElementById("chat-body");
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    
+        document.getElementById("chat-bubble").addEventListener("click", function () {
+            const chatContainer = document.getElementById("chat-container");
+            const chatBubble = document.getElementById("chat-bubble");
+            chatContainer.style.display = "block";
+            chatBubble.style.display = "none";
+        });
+    
+        document.getElementById("close-button").addEventListener("click", function () {
+            const chatContainer = document.getElementById("chat-container");
+            const chatBubble = document.getElementById("chat-bubble");
+            chatContainer.style.display = "none";
+            chatBubble.style.display = "flex";
+        });
+    
+        const chatBubble = document.getElementById("chat-bubble");
+        const chatContainer = document.getElementById("chat-container");
+        const closeButton = document.getElementById("close-button");
+    
+        chatBubble.addEventListener("click", function () {
+            chatContainer.classList.add("active");
+        });
+    
+        closeButton.addEventListener("click", function () {
+            chatContainer.classList.remove("active");
+        });
+    
+        function showWelcomeMessage() {
+            const chatBody = document.getElementById("chat-body");
+            const welcomeMessageBubble = document.createElement("div");
+            welcomeMessageBubble.className = "bot-bubble";
+            welcomeMessageBubble.textContent = welcomeMessage;
+            chatBody.appendChild(welcomeMessageBubble);
+            scrollChatToBottom();
+        }
+    
+        showWelcomeMessage();
+    </script>
+    
+
+</body>
+</html>
